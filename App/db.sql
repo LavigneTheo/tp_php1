@@ -24,8 +24,16 @@ CREATE  TABLE IF NOT EXISTS "film" (
   'category_id' INTEGER NOT NULL,
   'realisator_id' INTEGER NOT NULL,
   'image_path' TEXT,
-  FOREIGN KEY('category_id') REFERENCES 'category'('id'),
-  FOREIGN KEY('realisator_id') REFERENCES 'realisator'('id')
+
+  CONSTRAINT con_category
+  FOREIGN KEY ('category_id')
+  REFERENCES 'category'('id')
+  ON DELETE CASCADE
+
+  CONSTRAINT con_realisator
+  FOREIGN KEY ('realisator_id')
+  REFERENCES 'realisator'('id')
+  ON DELETE CASCADE
 );
 
 INSERT INTO category(name)

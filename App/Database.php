@@ -22,6 +22,7 @@ class Database
         try {
             $this->pdo = new PDO('sqlite:' . ROOT . '\film.sqlite3');
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->query('PRAGMA foreign_keys = ON;');
         } catch (\Exception $e) {
             exit('Error \App\Database::__construct : ' . $e->getMessage());
         }
