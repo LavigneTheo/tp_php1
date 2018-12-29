@@ -1,5 +1,0 @@
-$data = $this->db->query("
-          SELECT f.name AS f_name, f.year AS f_year, f.summary AS f_summary c.name as c_name
-          FROM film AS f, category AS c
-          WHERE f.category_id = c.id;",
-            [], true);
